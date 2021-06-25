@@ -15,7 +15,7 @@ rule "ICICI"
 when
 order : Order(cardType=="ICICI" && price>10000);
 then
-order.setDiscount(8);
+order.setDiscount(10);
 end;
 
 
@@ -24,5 +24,20 @@ rule "DBS"
 when
 order : Order(cardType=="DBS" && price>15000);
 then
-order.setDiscount(15);
+order.setDiscount(13);
+end;
+
+rule "Checking if it's an object"
+
+when
+obj : Object(obj!=null)
+then
+System.out.println("I am an object");
+end;
+
+rule "Does an object appear as an order?"
+
+when
+Order()
+then System.out.println("I identify as an order");
 end;

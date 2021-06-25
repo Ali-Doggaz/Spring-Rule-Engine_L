@@ -17,6 +17,8 @@ public class orderController {
     @PostMapping("/order")
     public Order order(@RequestBody Order order){
         session.insert(order);
+        Order a = new Order();
+        session.insert(a);
         System.out.println("Discount:" + order.getDiscount());
         session.fireAllRules();
         System.out.println(order.getDiscount());
